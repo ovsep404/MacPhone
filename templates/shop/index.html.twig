@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Products {% endblock %}
+
+{% block stylesheets %}
+<link href="/product.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="header">
+  <div class="menu">
+    <!-- Logo au centre -->
+    <div class="logo">
+      <a href="{{ path('app_home') }}">
+        <img src="{{ asset('images/logo.png') }}" alt="MacPhone Logo">
+      </a>
+    </div>
+
+    <!-- Icônes à droite -->
+    <div class="icons-right">
+    <a href="{{ path('app_shop') }}">
+        <img src="{{ asset('images/shop-bag-thin.848x1024.png') }}" alt="Shop">
+      </a>
+      <a href="{{ path('cart_page') }}">
+        <img src="{{ asset('images/shopping-cart.png') }}" alt="Panier">
+      </a>
+      <a href="{{ path('login_page') }}">
+        <img src="{{ asset('images/login-icon.png') }}" alt="Connexion">
+      </a>
+    </div>
+  </div>
+</div>
+ <h1 class ="title">Bienvenue sur MacPhone shop!</h1>
+    <main>
+    {% for product in products %}
+        <div class="product">
+         
+            <img src="{{ vich_uploader_asset(product,'imageFile') }}">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <span class="price">{{ product.price }}$</span>
+            <div class="btBox"> 
+            <button class="cta-button" onclick="window.location.href='{{ path('app_shop') }}'">BUY</button>
+            </div>
+            
+        </div>
+        {% endfor %} 
+
+    </main>
+
+
+{% endblock %}

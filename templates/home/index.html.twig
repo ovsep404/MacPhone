@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MacPhone - Accueil{% endblock %}
+
+{% block stylesheets %}
+<link href="/index.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+{{ include('header/header.php') }}
+
+
+<div class="container">
+    <h1 class ="title">Bienvenue sur MacPhone!</h1>
+
+    <!-- Image du produit -->
+    <img src="{{ asset('images/Phoneimage.png') }}" alt="MacPhone" class="product-image">
+
+    <!-- Informations sur le produit -->
+    <div class="product-info">
+        <p>Découvrez le premier MacPhone créé en 1999, une révolution en son temps !</p>
+    </div>
+
+    <!-- Bouton d'appel à l'action (CTA) -->
+    <button class="cta-button" onclick="window.location.href='{{ path('app_shop') }}'">
+        Voir le produit
+    </button>
+    <img src="{{ asset('images/text.png') }}" alt="MacPhone" class="product-image">
+</div>
+{{ include('footer/footer.php') }}
+{% endblock %}
