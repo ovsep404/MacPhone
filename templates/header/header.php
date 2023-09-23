@@ -18,8 +18,11 @@
     <a href="{{ path('app_shop') }}">
         <img src="{{ asset('images/shop-bag-thin.848x1024.png') }}" alt="Shop">
       </a>
-      <a href="{{ path('cart_page') }}">
+      <a href="{{ path('cart_index') }}">
         <img src="{{ asset('images/shopping-cart.png') }}" alt="Panier">
+        {% if app.session.get('panier') is defined and app.session.get('panier')|length > 0 %}
+            <span class="cart-count">{{ app.session.get('panier')|length }}</span>
+        {% endif %}
       </a>
       <a href="{{ path('login_page') }}">
         <img src="{{ asset('images/login-icon.png') }}" alt="Connexion">

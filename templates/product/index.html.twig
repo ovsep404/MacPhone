@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/product.css" rel="stylesheet">
+{% endblock %}
+
 {% block title %}Product index{% endblock %}
 
 {% block body %}
@@ -12,6 +17,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Quantity</th>
                 <th>Image</th>
                 <th>Add_date</th>
                 <th>actions</th>
@@ -24,6 +30,7 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
                 <td><img src="{{ vich_uploader_asset(product,'imageFile') }}"></td>
                 <td>{{ product.addDate ? product.addDate|date('Y-m-d') : '' }}</td>
                 <td>

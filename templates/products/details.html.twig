@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de
+    {{ product.name }}
+{% endblock %}
+
+{% block stylesheets %}
+<link href="/details.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+{{ include('header/header.php') }}
+
+<div class="product-detail">
+    <div class="row">
+        <div class="col-md-6">
+             <img src="{{ vich_uploader_asset(product,'imageFile') }}">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <h3>Price: {{ product.price }} €</h3>
+            {% if product.quantity > 0 %}
+                    <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-success">Ajouter au panier</a>
+                {% else %}
+                    <p class="text-danger">Temporairement en rupture de stock</p>
+                {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+

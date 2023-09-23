@@ -1,121 +1,139 @@
-main {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.product {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    text-align: center;
-    width: 200px;
-    box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
-    transition: transform 0.1s ease-in-out, box-shadow 0.1s;
-    background-color: white;
-    border: lightgray solid 1px;
-}
-
-.product:hover {
-    transform: translateY(-0.5rem) scale(1.0125);
-    box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
-  }
-
-img {
-    max-width: 100%;
+img{
+    max-width: 10%;
     height: auto;
 }
 
-.price {
-    color: #e60000;
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.25;
+  }
+
+
+
+lable {
     font-weight: bold;
 }
 
-
-
-
-body {
-    background-color: #D6C6B9;
-    margin: 0;
-    padding: 0;
+button {
+    margin-bottom: 10px;
 }
 
-.header {
-    padding: 0.2rem;
-    margin: 0;
+/* Style for Symfony form inputs */
+input,select {
+    margin-bottom: 20px;
 }
 
-.menu {
-    display: flex;
-    justify-content: center;
-    /* Centrer le logo */
-    align-items: center;
-    position: relative;
-    background-color: #D6C6B9;
-    border-bottom: 0.5mm ridge rgb(0 0 0);
+input,label,select {
+    font-weight: bold;
 }
 
-.menu a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: black;
-
+input,select {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s;
 }
 
-.logo img {
-    max-width: 50px;
+input,select:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.icons-right {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.icons-right img {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-}
-
-
-
-.cta-button {
-    background-color: #007BFF;
-    background-image: linear-gradient(to bottom, #009BFF, #0057FF);
-    border: 1px solid #0044CC;
-    padding: 3px 40px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+/* Style for Symfony form buttons */
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    animation: radial-pulse 1s infinite;
+    transition: background-color 0.2s;
 }
 
-@keyframes radial-pulse {
-    0% {
-      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
-    }
-  
-    100% {
-      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-    }
-  }
-
-.cta-button:hover {
-    background-color: #0062CC;
-    background-image: linear-gradient(to bottom, #0082CC, #0042AA);
-}
-
-.title {
-    display: flex;
-    justify-content: center;
+.btn:hover {
+    background-color: #0056b3;
 }

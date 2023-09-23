@@ -1,9 +1,46 @@
-* {
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+    background-color: white;
+    border: lightgray solid 1px;
+}
+
+.product:hover {
+    transform: translateY(-0.5rem) scale(1.0125);
+    box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
+  }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.price {
+    color: #e60000;
+    font-weight: bold;
+}
+
+
+
+
+body {
     background-color: #D6C6B9;
     margin: 0;
     padding: 0;
 }
-
 
 .header {
     padding: 0.2rem;
@@ -16,6 +53,7 @@
     /* Centrer le logo */
     align-items: center;
     position: relative;
+    background-color: #D6C6B9;
     border-bottom: 0.5mm ridge rgb(0 0 0);
 }
 
@@ -44,27 +82,12 @@
 }
 
 
-.container {
-    margin: auto;
-    max-width: 800px;
-    padding: 20px;
-    text-align: center;
-}
-
-.product-image {
-    max-width: 100%;
-}
-
-.product-info {
-    margin-top: 20px;
-    font-size: 18px;
-}
 
 .cta-button {
     background-color: #007BFF;
     background-image: linear-gradient(to bottom, #009BFF, #0057FF);
     border: 1px solid #0044CC;
-    padding: 10px 20px;
+    padding: 3px 40px;
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -72,10 +95,11 @@
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 2%;
+    margin-top: 5%;
     margin-bottom: 2%;
     animation: radial-pulse 1s infinite;
 }
+
 @keyframes radial-pulse {
     0% {
       box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
@@ -85,15 +109,15 @@
       box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
     }
   }
-  
+
 .cta-button:hover {
     background-color: #0062CC;
     background-image: linear-gradient(to bottom, #0082CC, #0042AA);
 }
 
-
 .title {
-    margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
 }
 
 

@@ -1,0 +1,27 @@
+.product-detail {
+    padding: 20px;
+  }
+  
+  .product-detail img {
+    max-width: 10%;
+    height: auto;
+  }
+  
+  .product-detail h2 {
+    margin-top: 0;
+  }
+  
+  .product-detail p {
+    margin-bottom: 20px;
+  }
+  
+  .product-detail h3 {
+    margin-top: 0;
+  }
+  
+  .product-detail .btn-primary {
+    margin-top: 20px;
+  }
+
+
+  

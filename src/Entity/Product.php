@@ -46,6 +46,9 @@ class Product
     #[ORM\OneToMany(mappedBy: 'Product_ID', targetEntity: Order::class)]
     private Collection $orders;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $quantity = null;
+
     // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     // private ?\DateTimeInterface $updatedAt = null;
 
@@ -211,6 +214,18 @@ class Product
                 $order->setProductID(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?int $quantity): static
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }
