@@ -1,9 +1,12 @@
 * {
-    background-color: #D6C6B9;
+    
     margin: 0;
     padding: 0;
 }
 
+body {
+    background-color: #D6C6B9;
+}
 
 .header {
     padding: 0.2rem;

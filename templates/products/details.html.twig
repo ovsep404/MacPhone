@@ -11,27 +11,25 @@
 {% block body %}
 {{ include('header/header.php') }}
 
-<div class="product-detail">
-    <div class="row">
-        <div class="col-md-6">
-             <img src="{{ vich_uploader_asset(product,'imageFile') }}">
+<div class="ProductDetailscontainer">
+<div class="product-details">
+        <div class="product-image">
+            <img src="{{ vich_uploader_asset(product,'imageFile') }}">
         </div>
-        <div class="col-md-6">
-            <h2>{{ product.name }}</h2>
-            <p>{{ product.description }}</p>
-            <h3>Price: {{ product.price }} €</h3>
+        <div class="product-info">
+            <h2 class="retro-text">{{ product.name }}</h2>
+            <p class="retro-text">{{ product.description }}</p>
+            <p class="retro-text"><strong>Price:</strong> {{ product.price }} </p>
             {% if product.quantity > 0 %}
-                    <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-success">Ajouter au panier</a>
+             <p class="retro-text"><strong>Quantity:</strong> {{ product.quantity }} </p>
+                    <a href="{{ path('cart_add', {id: product.id}) }}" class="retro-button">Ajouter au panier</a>
                 {% else %}
-                    <p class="text-danger">Temporairement en rupture de stock</p>
+                    <p class="retro-text">Temporairement en rupture de stock</p>
                 {% endif %}
         </div>
     </div>
 </div>
-
 {% endblock %}
-
-
 
 
 
