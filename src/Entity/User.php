@@ -21,7 +21,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
-    private ?string $email = null;
+    private ?string $email;
 
     #[ORM\Column]
     private array $roles = [];
@@ -147,6 +147,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->surname = $surname;
 
         return $this;
+    }
+
+
+    public function getUsername(): string
+    {
+        return $this->email;
     }
 
     public function getInscriptionDate(): ?\DateTimeInterface

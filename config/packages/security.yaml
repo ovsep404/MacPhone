@@ -1,3 +1,5 @@
+# config/packages/security.yaml
+
 security:
     password_hashers:
         App\Entity\User: 'auto'
@@ -19,9 +21,12 @@ security:
             form_login:
                 login_path: app_login
                 check_path: app_login
+                username_parameter: email # Specify the name of your email field
+                password_parameter: password # Specify the name of your password field
             logout:
                 path: app_logout
                 target: app_home
+            access_denied_url: app_login # Specify the URL to redirect to on access denied
 
     access_control:
         - { path: ^/login, roles: PUBLIC_ACCESS } # Utilisez PUBLIC_ACCESS au lieu de IS_AUTHENTICATED_ANONYMOUSLY

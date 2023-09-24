@@ -24,7 +24,7 @@
             <span class="cart-count">{{ app.session.get('panier')|length }}</span>
         {% endif %}
       </a>
-      <a href="{{ path('login_page') }}">
+      <a href="{{ path('app_login') }}">
         <img src="{{ asset('images/login-icon.png') }}" alt="Connexion">
       </a>
     </div>

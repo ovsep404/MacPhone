@@ -14,19 +14,33 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'login_page')]
-public function login(AuthenticationUtils $authenticationUtils): Response
-{
-    $error = $authenticationUtils->getLastAuthenticationError();
-    $lastEmail = $authenticationUtils->getLastUsername(); // on renomme la variable pour qu'elle soit plus claire
+    #[Route('/login', name: 'app_login')]
+    public function login(Request $request, AuthenticationUtils $authenticationUtils): Response
+    {
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastEmail = $authenticationUtils->getLastUsername();
 
-    return $this->render('security/login.html.twig', [
-        'last_email' => $lastEmail, // on ajuste la clé du tableau aussi
-        'error' => $error,
-    ]);
-}
+        if ($error) {
+            $this->addFlash('error', 'Authentication failed. Please check your credentials.');
+        } else {
+            $this->addFlash('success', 'Welcome! You have successfully logged in.');
+        }
+        
+
+        return $this->render('security/login.html.twig', [
+            'last_email' => $lastEmail,
+            'error' => $error,
+        ]);  
+    }
+
+    #[Route (path: '/logout', name: 'app_logout')]
+    public function logout(): void
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
 
 
     #[Route('/password-reset-request', name: 'password_reset_request')]
