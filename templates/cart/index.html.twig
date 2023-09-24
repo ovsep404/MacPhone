@@ -14,6 +14,14 @@
 
 {% block body %}
 {{ include('header/header.php') }}
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+{% for message in app.flashes('warning') %}
+    <div class="alert alert-warning">{{ message }}</div>
+{% endfor %}
+
+
     <main class="container">
         <section class="row">
             <div class="col-12">

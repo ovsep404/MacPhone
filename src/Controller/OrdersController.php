@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route('/commandes', name: 'app_orders_')]
 class OrdersController extends AbstractController
 {
@@ -20,12 +21,14 @@ class OrdersController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $panier = $session->get('panier', []);
-
+        
 
         if ($panier === []) {
-            $this->addFlash('message', 'Votre panier est vide');
-            return $this->redirectToRoute('app_home');
+            // $this->addFlash('message', 'Votre panier est vide');
+            $this->addFlash('warning', 'Votre panier est vide!');
+            return $this->redirectToRoute('cart_index');
         }
+
 
         $totalAmount = 0;
 
@@ -87,8 +90,9 @@ class OrdersController extends AbstractController
         $em->flush();
 
         $session->remove('panier');
-
-        $this->addFlash('message', 'Commande créée avec succès');
-        return $this->redirectToRoute('app_home');
+        
+        
+        $this->addFlash('success', 'Commande créée avec succès!');
+        return $this->redirectToRoute('cart_index');
     }
 }
