@@ -1,8 +1,6 @@
-{% extends 'base.html.twig' %}
-{% block body %}
 <link href="/button.css" rel="stylesheet">
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="retro-button">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-{% endblock %}

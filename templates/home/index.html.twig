@@ -10,13 +10,7 @@
 {% block body %}
 {{ include('header/header.php') }}
 
-   {% for message in app.flashes('success') %}
-    <div class="alert alert-success">{{ message }}</div>
-{% endfor %}
 
-{% for message in app.flashes('error') %}
-    <div class="alert alert-danger">{{ message }}</div>
-{% endfor %}
 
 <div class="container">
     <h1 class ="title">Bienvenue sur MacPhone!</h1>
@@ -30,7 +24,7 @@
     </div>
 
     <!-- Bouton d'appel à l'action (CTA) -->
-    <button class="cta-button" onclick="window.location.href='{{ path('app_shop') }}'">
+    <button class="retro-button" onclick="window.location.href='{{ path('app_shop') }}'">
         Voir le produit
     </button>
     <img src="{{ asset('images/text.png') }}" alt="MacPhone" class="product-image">

@@ -64,7 +64,7 @@ class LoginController extends AbstractController
                     ->from('noreply@yourdomain.com')
                     ->to($email)
                     ->subject('Réinitialisation de mot de passe')
-                    ->html($this->renderView('emails/password_reset.html.twig', ['token' => $token->getToken()]));
+                    ->html($this->renderView('email/password_reset.html.twig', ['token' => $token->getToken()]));
 
                 $mailer->send($email);
 

@@ -4,37 +4,15 @@
 
 {% block stylesheets %}
 <link href="/shop.css" rel="stylesheet">
+<link href="/button.css" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
 
 
-<div class="header">
-  <div class="menu">
-    <!-- Logo au centre -->
-    <div class="logo">
-      <a href="{{ path('app_home') }}">
-        <img src="{{ asset('images/logo.png') }}" alt="MacPhone Logo">
-      </a>
-    </div>
-
+{% include 'header/header.php' %}
     <!-- Icônes à droite -->
-    <div class="icons-right">
-    <a href="{{ path('app_shop') }}">
-        <img src="{{ asset('images/shop-bag-thin.848x1024.png') }}" alt="Shop">
-        {% if app.session.get('panier') is defined and app.session.get('panier')|length > 0 %}
-            <span class="cart-count">{{ app.session.get('panier')|length }}</span>
-        {% endif %}
-      </a>
-      <a href="{{ path('cart_page') }}">
-        <img src="{{ asset('images/shopping-cart.png') }}" alt="Panier">
-      </a>
-      <a href="{{ path('app_login') }}">
-        <img src="{{ asset('images/login-icon.png') }}" alt="Connexion">
-      </a>
-    </div>
-  </div>
-</div>
+    
  <h1 class ="title">Bienvenue sur MacPhone shop!</h1>
     <main>
     {% for product in products %}
@@ -45,7 +23,7 @@
             <p>{{ product.description }}</p>
             <span class="price">{{ product.price }}$</span>
             <div class="btBox"> 
-            <button class="cta-button" onclick="window.location.href='{{ path('products_details', {"id": product.id }) }}'">Voir les détails</button>
+            <button class="retro-button" onclick="window.location.href='{{ path('products_details', {"id": product.id }) }}'">Voir les détails</button>
             </div>
             
         </div>

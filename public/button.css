@@ -1,0 +1,45 @@
+.retro-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: white;
+    background-color: #008080; /* Teal color, but you can use any other retro color */
+    border: 2px outset #008080; /* This gives the 3D effect */
+    text-shadow: 1px 1px 1px #000000; /* Text shadow for depth */
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, border 0.3s; /
+}
+
+.retro-button:hover {
+    background-color: #005757; /* Darker teal on hover */
+    border-color: #005757;
+}
+
+.retro-button:active {
+    border-style: inset;
+}
+
+.button-orange-1999 {
+    display: inline-block;
+    padding: 8px 16px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: black;
+    background-color: #FFA500; /* Orange color */
+    border: 2px outset #FFA500; /* This gives the 3D effect */
+    text-shadow: 1px 1px 1px #FFFFFF; /* Text shadow for depth */
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, border 0.3s; /* Smooth transition effect */
+}
+
+.button-orange-1999:hover {
+    background-color: #FF8C00; /* Darker orange on hover */
+    border-color: #FF8C00;
+}
+
+.button-orange-1999:active {
+    border-style: inset; /* This gives the impression that the button is being pressed */
+}

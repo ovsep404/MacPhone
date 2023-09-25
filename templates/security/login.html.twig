@@ -1,8 +1,5 @@
-{% extends 'base.html.twig' %}
-
-
-{% block title %}Connexion{% endblock %}
-
+{% include 'header/header.php' %}
+<link href="/button.css" rel="stylesheet">
 {% block body %}
  {% if app.user %}
         <div class="mb-3">
@@ -24,7 +21,7 @@
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required="required" />
 
-    <button type="submit">Login</button>
+    <button type="submit" class="retro-button">Login</button>
 
 
 

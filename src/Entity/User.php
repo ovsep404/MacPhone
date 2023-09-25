@@ -155,6 +155,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
 
+    public function __toString()
+{
+    return $this->email;
+}
+
     public function getInscriptionDate(): ?\DateTimeInterface
     {
         return $this->inscription_date;
