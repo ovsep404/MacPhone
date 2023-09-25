@@ -18,6 +18,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class LoginController extends AbstractController
 {
     #[Route('/login', name: 'app_login')]
+    
     public function login(Request $request, AuthenticationUtils $authenticationUtils): Response
     {
         $error = $authenticationUtils->getLastAuthenticationError();

@@ -139,4 +139,8 @@ class Order
 
         return $this;
     }
+    public function __construct()
+    {
+        $this->order_date = new \DateTime();  // Définir la date actuelle lors de la création d'une nouvelle commande
+    }
 }

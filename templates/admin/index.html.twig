@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'header/header.php' %}
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Dashboard</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+               
+            }
+            .container {
+                width: 80%;
+                margin: 50px auto;
+               
+                padding: 20px;
+                border: 1px solid #CCCCCC;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            table, th, td {
+                border: 1px solid #000;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+            }
+            a {
+                color: blue;
+                text-decoration: underline;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            li {
+                display: inline;
+                margin-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome to Your Admin Dashboard!</h1>
+            
+            <ul>
+                <li><a href="{{ path('app_product_index') }}">Les products</a></li>
+                <li><a href="{{ path('app_order_admin_index') }}">Les Orders </a></li>
+                <li><a href="{{ path('admin_dashboard') }}">Profile</a></li>
+                <li><a href="{{ path('app_home') }}">Home</a></li>
+                <li><a href="{{ path('app_logout') }}">Logout</a></li>
+            </ul>
+
+            {# <h2>Recent Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.getOrderDate()|date('Y-m-d') }}</td>
+                            <td>{{ order.getStatus() }}</td>
+                            <td>{{ order.getTotal() }}</td>
+                        </tr>
+                    {% endfor %}
+                
+                </tbody>
+            </table> #}
+        </div>
+    </body>
+    </html>
+{% endblock %}
