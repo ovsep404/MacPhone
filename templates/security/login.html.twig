@@ -1,35 +1,38 @@
 {% include 'header/header.php' %}
 <link href="/button.css" rel="stylesheet">
+<link href="/login.css" rel="stylesheet">
+
 {% block body %}
- {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-    
-    <h2>Connexion</h2>
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-    
- 
-   
-    <form action="{{ path('app_login') }}" method="post">
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" required="required" />
+    <div class="login-container">
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required="required" />
+        <h2>Connexion</h2>
 
-    <button type="submit" class="retro-button">Login</button>
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
+        <form action="{{ path('app_login') }}" method="post">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required="required" />
+            </div>
 
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required="required" />
+            </div>
 
-    <div class="extra-links">
-        <a href="{{ path('register_page') }}">Créer un compte</a>
-        <a href="{{ path('forgot_password_page') }}">Mot de passe oublié?</a>
+            <button type="submit" class="retro-button">Login</button>
+
+            <div class="extra-links">
+                <a href="{{ path('register_page') }}">Créer un compte</a>
+                <a href="{{ path('forgot_password_page') }}">Mot de passe oublié?</a>
+            </div>
+        </form>
     </div>
-
-
-    </form>
 {% endblock %}

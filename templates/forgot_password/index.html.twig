@@ -2,7 +2,9 @@
 {% block stylesheets %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/button.css" rel="stylesheet">
+<link href="/register.css" rel="stylesheet">
 {% endblock %}
+
 {% block title %}Réinitialisation du mot de passe{% endblock %}
 
 {% block body %}
@@ -24,21 +26,4 @@
     
     <p><a href="{{ path('app_login') }}">Retour à la connexion</a></p>
 </div>
-
-<style>
-    .reset-password-container {
-        max-width: 500px;
-        margin: 2rem auto;
-        padding: 1rem;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    
-    .form-group {
-        margin-bottom: 1rem;
-    }
-</style>
 {% endblock %}
-
-
